@@ -6,11 +6,11 @@
  */
 export function sortStrings(arr, param = 'asc') {
   const collator = new Intl.Collator(['ru', 'en-GB', 'en-US'], { caseFirst: 'upper' });
-  let sortedStrings = [...arr].sort(collator.compare);
-
-  if (param === 'desc') {
-    sortedStrings.reverse();
-  }
+  let sortedStrings =
+    [...arr].sort((a, b) => {
+      return param === 'asc' ? collator.compare(a, b) : collator.compare(b, a);
+    }
+  );
 
   return sortedStrings;
 }
