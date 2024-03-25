@@ -5,7 +5,7 @@
  */
 export function uniq(arr) {
   if(!arr)  {
-    return [];
+    return Array.from(new Set(arr));
   }
   let unique = [];
   arr.forEach(element => {
@@ -15,3 +15,6 @@ export function uniq(arr) {
   });
   return unique;
 }
+
+
+

@@ -9,10 +9,10 @@ export function createGetter(path) {
   return function(obj) {
     let value = obj;
     for (const property of properties) {
-      if (value && value.hasOwnProperty(property)) {
+      if (value?.hasOwnProperty(property)) {
         value = value[property];
       } else  {
-        return undefined;
+        return;
       }
     }
     return value;
